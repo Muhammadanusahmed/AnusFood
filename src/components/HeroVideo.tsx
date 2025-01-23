@@ -1,4 +1,4 @@
-import { Head } from "next/document"
+
 import Image from "next/image"
 import Link from "next/link"
 import { FaPlay } from 'react-icons/fa'

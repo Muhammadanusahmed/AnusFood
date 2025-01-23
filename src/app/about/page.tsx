@@ -8,14 +8,19 @@ import Link from "next/link";
 // import { AboutSec } from "@/components/HeroSec";
 
 const page = () => {
-  const [showMore, setShowMore] = useState(false);
-  function showMoreFunc() {
-    setShowMore(!showMore)
+  const [ShowMore, SetShowMore] = useState(false);
+
+  function ShowMoreFunc() {
+    SetShowMore(!ShowMore)
   }
 
-  const [onVideo, setOnVideo] = useState(false);
-  function showVideo() {
-    setOnVideo(!onVideo);
+  const [OnVideo, SetOnVideo] = useState(false);
+/*************  ✨ Codeium Command ⭐  *************/
+  /**
+   * Toggles the state of the ShowMore variable, which controls whether to display more information on the about page
+   */
+/******  e3a98c57-abd7-458e-97f9-bef48a88c5c2  *******/  function ShowVideo() {
+    SetOnVideo(!OnVideo);
   }
 
   return (
@@ -82,13 +87,13 @@ const page = () => {
               <div className="mt-6 ">
                 <div className="rounded-full flex gap-4">
                   <button
-                    onClick={showMoreFunc}
+                    onClick={ShowMoreFunc}
                     className="border bg-[#FF9F0D] inline border-[#FF9F0D] text-white px-6 hover:bg-white hover:text-black py-4 rounded-lg transition duration-300"
                   >
-                    {showMore ? "Show Less" : "Show More"}
+                    {ShowMore ? "Show Less" : "Show More"}
                   </button>
 
-                  <button onClick={showVideo} className=" text-black py-2 rounded-full flex items-center space-x-2 hover:bg-[#FF9F0D] transition duration-300">
+                  <button onClick={ShowVideo} className=" text-black py-2 rounded-full flex items-center space-x-2 hover:bg-[#FF9F0D] transition duration-300">
                     <div className="flex items-center justify-center w-10 h-10 bg-[#FF9F0D] rounded-full">
                       <FaPlay className="text-white" />
                     </div>
@@ -97,7 +102,7 @@ const page = () => {
                 </div>
                 
                 <div className="block">
-                  {showMore && (
+                  {ShowMore && (
                     <div className="mt-4 gap-4 block w-full">
                       <p>
                       Lorem ipsum, dolor sit amet consectetur adipisicing elit.
@@ -121,7 +126,7 @@ const page = () => {
           </div>
 
           {
-        onVideo && (
+        OnVideo && (
           <div className="aspect-w-16 my-12 aspect-h-9">
           <iframe width="560" height="315" src="https://www.youtube.com/embed/lUuR8jyBsXI?si=rVVpEKG-sEm2PutP" 
           title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 

@@ -5,7 +5,9 @@ import { FaCaretLeft, FaCaretRight } from 'react-icons/fa'
 const page = () => {
   return (
     <div>
+      <Head>
         <title>M.ANUS AHMED Checkout</title>
+      </Head>
       <div className='relative'>
         <img
           src='/nav/navbarbg.jpg'

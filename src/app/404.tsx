@@ -1,6 +1,7 @@
 // pages/404.js
 import Head from "next/head";
 import Link from "next/link";
+import Image from "next/image";
 import React from "react";
 
 export default function Custom404() {
@@ -11,9 +12,11 @@ export default function Custom404() {
       </Head>
 
       <div className="relative">
-        <img
+        <Image
           src="/nav/navbarbg.jpg"
           alt="Fresh vegetables with dark background"
+          width={200}
+          height={200}
           className="w-full h-64 object-cover"
         />
         <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
