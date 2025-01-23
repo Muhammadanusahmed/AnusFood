@@ -8,7 +8,6 @@ import {
   FaCheck,
   FaFacebook,
   FaPinterestP,
-  FaPlay,
   FaStar,
   FaTwitter,
 } from "react-icons/fa";
@@ -33,7 +32,7 @@ export default function Home() {
           <div className="text-center md:text-left md:w-1/2 flex flex-col items-center md:items-center ">
             <div className="flex flex-col items-center md:items-start px-4 border-l-2 border-[#FF9F0D] md:py-4  md:ml-6">
               <p className="text-[#FF9F0D] font-GreatVibes text-lg italic">
-                It's Quick &amp; Amusing!
+                It&apos;s Quick &amp; Amusing!
               </p>
               <h1 className="text-4xl font-bold text-white">
                 <span className="text-[#FF9F0D]">Th</span>e Art of Speed <br />

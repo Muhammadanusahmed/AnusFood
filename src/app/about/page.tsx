@@ -7,7 +7,7 @@ import Image from "next/image"
 import Link from "next/link";
 // import { AboutSec } from "@/components/HeroSec";
 
-const page = () => {
+export default function About(){
   const [ShowMore, SetShowMore] = useState(false);
 
   function ShowMoreFunc() {
@@ -386,4 +386,3 @@ const page = () => {
   );
 };
 
-export default page;

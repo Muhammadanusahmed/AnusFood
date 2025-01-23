@@ -214,7 +214,9 @@ const Page = () => {
           </div>
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
             {products.map(product => (
-              <ProductCard product={product} />
+              <div key={product.id}>
+                <ProductCard product={product} />
+              </div>
             ))}
           </div>
           <div className='flex justify-center mt-4'>

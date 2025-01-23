@@ -1,6 +1,6 @@
 "use client";
-import { useState } from 'react';
-import Image from 'next/image';
+// import { useState } from 'react';
+// import Image from 'next/image';
 
 // export default function Menu() {
 //   const menuData : any = {

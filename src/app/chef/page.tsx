@@ -27,7 +27,7 @@ export default function page(){
    <div>
      <div>
       <Head>
-        <title>M.ANUS AHMED Chef's</title>
+        <title>M.ANUS AHMED Chefs</title>
       </Head>
       <div className='relative'>
         <img
@@ -64,7 +64,7 @@ export default function page(){
       </div>
     </div>
     
-
+{/* 
 {chefs.map((chef:{name:string,title:string,img:string}, index:number) => (
     <div key={index}>
       {chef.name}
@@ -72,11 +72,11 @@ export default function page(){
       {chef.title}
       <br />
       {chef.img}    
-    </div>))}
+    </div>))} */}
 
-   </div>
-     
-  )
-}
+
+
+</div>
+)}
   
    

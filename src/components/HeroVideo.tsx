@@ -5,7 +5,7 @@ import { FaPlay } from 'react-icons/fa'
   import { useState } from 'react'
   
 
-export default function (){
+export default function HeroVideo(){
     const [onVideo, setOnVideo] = useState(false);
       function showVideo() {
         setOnVideo(!onVideo);

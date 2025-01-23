@@ -1,7 +1,5 @@
 import Head from 'next/head'
 import React from 'react'
-import { FaLock, FaUser} from 'react-icons/fa'
-
 
 const page = () => {
   return (

@@ -39,7 +39,7 @@ export default function Custom404() {
             Meanwhile, check out these fresh ideas:
           </p>
           <Link href="/">
-            {" "}
+          
             {/* Use Link for navigation */}
             <button className="mt-6 px-6 py-2 bg-[#FF9F0D] text-gray-900 rounded-full">
               Go to home
