@@ -5,7 +5,7 @@ import { FaPlay, FaStar } from "react-icons/fa";
 import { useState } from "react";
 import Image from "next/image"
 import Link from "next/link";
-import { AboutSec } from "@/components/HeroSec";
+// import { AboutSec } from "@/components/HeroSec";
 
 const page = () => {
   const [showMore, setShowMore] = useState(false);

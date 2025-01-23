@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Head from "next/head";
 import HeroVideo from "@/components/HeroVideo";
-import HeroShortMenu from "@/components/HeroShortMenu"
+// import HeroShortMenu from "@/components/HeroShortMenu"
 import Link from "next/link";
 import {
   FaCheck,
@@ -401,7 +401,7 @@ export default function Home() {
       {/* ICON SECTION END */}
 
       {/* short menu start */}
-      <HeroShortMenu />
+      {/* <HeroShortMenu /> */}
       {/* short menu end */}
 
       {/* CHEFS START */}
