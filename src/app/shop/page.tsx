@@ -1,179 +1,41 @@
-'use client'
 import React from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
-// import { useAppContext } from '@/context/context'
-const products = [
-  {
-    id: 1,
-    name: 'Fresh Lime',
-    price: '$38.00',
-    oldPrice: '$45.00',
-    img: '/shop/product1.jpg',
-    tag: ''
-  },
-  {
-    id: 2,
-    name: 'Chocolate Muffin',
-    price: '$28.00',
-    oldPrice: '$45.00',
-    img: '/shop/product2.jpg',
-    tag: 'Sell'
-  },
-  {
-    id: 3,
-    name: 'Burger',
-    price: '$21.00',
-    oldPrice: '$45.00',
-    img: '/shop/product3.jpg',
-    tag: ''
-  },
-  {
-    id: 4,
-    name: 'Country Burger',
-    price: '$45.00',
-    oldPrice: '',
-    img: '/shop/product4.jpg',
-    tag: ''
-  },
-  {
-    id: 5,
-    name: 'Drink',
-    price: '$23.00',
-    oldPrice: '$45.00',
-    img: '/shop/product5.jpg',
-    tag: ''
-  },
-  {
-    id: 6,
-    name: 'Pizza',
-    price: '$43.00',
-    oldPrice: '',
-    img: '/shop/product6.jpg',
-    tag: ''
-  },
-  {
-    id: 7,
-    name: 'Cheese Butter',
-    price: '$10.00',
-    oldPrice: '',
-    img: '/shop/product7.jpg',
-    tag: ''
-  },
-  {
-    id: 8,
-    name: 'Sandwiches',
-    price: '$25.00',
-    oldPrice: '',
-    img: '/shop/product8.jpg',
-    tag: ''
-  },
-  {
-    id: 9,
-    name: 'Chicken Chup',
-    price: '$12.00',
-    oldPrice: '',
-    img: '/shop/product9.jpg',
-    tag: 'Sell'
-  },
-  {
-    id: 10,
-    name: 'Chicken Chup',
-    price: '$12.00',
-    oldPrice: '',
-    img: '/shop/product4.jpg',
-    tag: 'Sell'
-  },
-  {
-    id: 11,
-    name: 'Chicken Chup',
-    price: '$12.00',
-    oldPrice: '',
-    img: '/shop/product5.jpg',
-    tag: 'Sell'
-  },
-  {
-    id: 12,
-    name: 'Chicken Chup',
-    price: '$12.00',
-    oldPrice: '',
-    img: '/shop/product6.jpg',
-    tag: 'Sell'
-  },
-  {
-    id: 13,
-    name: 'Chicken Chup',
-    price: '$12.00',
-    oldPrice: '',
-    img: '/shop/product7.jpg',
-    tag: 'Sell'
-  },
-  {
-    id: 14,
-    name: 'Chicken Chup',
-    price: '$12.00',
-    oldPrice: '',
-    img: '/shop/product8.jpg',
-    tag: 'Sell'
-  },
-  {
-    id: 15,
-    name: 'Chicken Chup',
-    price: '$12.00',
-    oldPrice: '',
-    img: '/shop/product9.jpg',
-    tag: 'Sell'
+import { client } from '@/sanity/lib/client' 
+import { food } from '@/sanity/schemaTypes/food'
+
+
+
+
+  export interface ShopDataType {
+    _id: string,
+    name: string,
+    price: number,
+    DiscountPrice?: string,
+    image_url: string,
+    tags?: string
   }
-]
-
-interface Product {
-  name: string
-  price: string
-  oldPrice?: string
-  img: string
-  tag?: string
+  
+export const Shop = async () => {
+    try{
+        const foodData =  await client.fetch(`*[_type == "food"][]{
+            _id,
+            name,
+            category,
+            price,
+            DiscountPrice,
+            tags,
+            "image_url": image.asset->url,
+            description,
+            available
+            }`)
+            return foodData
+    }
+    catch{"error"}
 }
 
-interface ProductCardProps {
-  product: Product
-}
-const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
-  return (
-    <Link href="/shopdetail" passHref>
-      <div className='bg-white p-4 rounded-lg shadow-md cursor-pointer'>
-        <div className='relative'>
-          {product.tag && (
-            <span className='absolute top-2 left-2 bg-[#FF9F0D] text-white px-2 py-1 text-xs rounded'>
-              {product.tag}
-            </span>
-          )}
-          <img
-            alt={product.name || 'Product Image'}
-            className='w-full h-48 object-cover rounded-t-lg'
-            src={product.img || 'https://placehold.co/300x300'}
-          />
-        </div>
-        <div className='mt-4'>
-          <h3 className='text-lg text-[#333] font-semibold'>
-            {product.name || 'Unnamed Product'}
-          </h3>
-          <div className='flex items-center'>
-            <span className='text-[#FF9F0D] text-xl font-bold'>
-              {product.price || '$0.00'}
-            </span>
-            {product.oldPrice && (
-              <span className='text-gray-500 line-through ml-2'>
-                {product.oldPrice}
-              </span>
-            )}
-          </div>
-        </div>
-      </div>
-    </Link>
-  );
-};
-
-const Page = () => {
+const Page = async () => {
+    const Data:ShopDataType[]= await Shop()
   return (
     <div>
        <Head>
@@ -213,11 +75,46 @@ const Page = () => {
             </div>
           </div>
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
-            {products.map(product => (
-              <div key={product.id}>
-                <ProductCard product={product} />
-              </div>
-            ))}
+
+        {Data.map((product) =>{
+            return (
+              
+      <Link href={`/product/${product._id}`} className='bg-white p-4 rounded-lg shadow-md cursor-pointer'>
+      <div className='relative'>
+        {product.tags && (
+          <span className='absolute top-2 left-2 bg-[#FF9F0D] text-white px-2 py-1 text-xs rounded'>
+            {product.tags}
+          </span>
+        )}
+        <img
+          alt={product.name || 'Product Image'}
+          className='w-full h-48 object-cover rounded-t-lg'
+          src={product.image_url || 'https://placehold.co/300x300'}
+        />
+      </div>
+      <div className='mt-4'>
+        <h3 className='text-lg text-[#333] font-semibold'>
+          {product.name || 'Unnamed Product'}
+        </h3>
+        <div className='flex items-center'>
+          <span className='text-[#FF9F0D] text-xl font-bold'>
+            Rs.{product.price || '0.00'}
+          </span>
+          {product.DiscountPrice && (
+            <span className='text-gray-500 line-through ml-2'>
+              Rs.{product.DiscountPrice}
+            </span>
+            // end
+          )}
+        </div>
+      </div>
+    </Link>
+            )
+
+        })}
+
+            
+        
           </div>
           <div className='flex justify-center mt-4'>
             <button className='border text-[#FF9F0D] text-xl border-gray-300 rounded-lg p-0 w-10 h-10 mx-1 flex items-center justify-center hover:bg-gray-200 transition'>
@@ -417,5 +314,7 @@ const Page = () => {
     </div>
   )
 }
-
-export default Page
+const main = () => {
+  return (<Page/>)
+}
+export default main

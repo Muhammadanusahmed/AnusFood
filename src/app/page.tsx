@@ -2,7 +2,9 @@
 import Image from "next/image";
 import Head from "next/head";
 import HeroVideo from "@/components/HeroVideo";
+import HeroChef from "@/components/main/HeroChef"
 // import HeroShortMenu from "@/components/HeroShortMenu"
+import HeroBlog from "@/components/main/HeroBlog"
 import Link from "next/link";
 import {
   FaCheck,
@@ -12,16 +14,7 @@ import {
   FaTwitter,
 } from "react-icons/fa";
 
-const chefs = [
-  { name: "D.Estwood", title: "Chief Chef", image: "/chef/chef1.jpg" },
-  { name: "D.Scoriesh", title: "Assistant Chef", image: "/chef/chef2.jpg" },
-  {
-    name: "M. William",
-    title: "Advertising Chef",
-    image: "/chef/chef3.jpg",
-  },
-  { name: "W.Readfroad", title: "Chef", image: "/chef/chef4.jpg" },
-];
+
 
 export default function Home() {
   return (
@@ -126,12 +119,12 @@ export default function Home() {
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 </li>
               </ul>
-              <a
+              <Link
                 href="/about"
                 className="bg-[#FF9F0D] text-white py-2 px-6 rounded-full hover:bg-orange-600 transition duration-300 inline-block text-center"
               >
                 Read More
-              </a>
+              </Link>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
@@ -404,45 +397,7 @@ export default function Home() {
       {/* short menu end */}
 
       {/* CHEFS START */}
-      <section>
-        <div className="flex flex-col items-center py-10 bg-black">
-          <h2
-            className="text-[#FF9F0D] text-2xl mb-2"
-            style={{ fontFamily: "Great Vibes, cursive" }}
-          >
-            Chefs
-          </h2>
-          <h1 className="text-4xl font-bold mb-10 text-white">
-            <span className="text-[#FF9F0D]">Me</span>et Our Chef
-          </h1>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
-            {chefs.map((chef, index) => (
-              <div
-                key={index}
-                className="bg-white hover:scale-110 duration-300  text-black rounded-lg overflow-hidden shadow-lg relative font-poppins"
-              >
-                <img
-                  src={chef.image}
-                  alt={`Chef ${chef.name}`}
-                  className="w-full h-80 object-cover"
-                />
-                <div className="absolute bottom-0 left-0 right-28 bg-white  p-2 text-center">
-                  <h3 className="font-bold text-black font-poppins">
-                    {chef.name}
-                  </h3>
-                  <p className="text-black font-poppins">{chef.title}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-          <Link
-            href="/chef"
-            className="bg-transparent border-2 border-[#FF9F0D] text-[#FF9F0D] py-2 px-6 rounded-full hover:bg-[#FF9F0D] hover:text-black transition duration-300"
-          >
-            See More
-          </Link>
-        </div>
-      </section>
+      <HeroChef />
       {/* CHEFS END */}
 
       {/* TESTIMONIALS START */}
@@ -509,137 +464,8 @@ export default function Home() {
       {/* video section */}
 
       {/* BLOG SECTION START  */}
-      <section>
-        <div className="bg-black text-white min-h-screen ">
-          <Head>
-            <title>Latest News & Blog</title>
-            <link
-              rel="stylesheet"
-              href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-            />
-          </Head>
-          <div className="container mx-auto p-4">
-            <div className="text-center mb-8">
-              <h2
-                className="text-[#FF9F0D] md:pt-8 lg:pt-12 text-2xl"
-                style={{ fontFamily: "Great Vibes, cursive" }}
-              >
-                Blog Post
-              </h2>
-              <h1 className="text-4xl font-bold text-white">
-                <span className="text-[#FF9F0D]">La</span>test News & Blog
-              </h1>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <Link href={"/blog"} className="hover:scale-110 duration-300 bg-black border border-gray-700 rounded-lg overflow-hidden">
-                <img
-                  src="/blog/blog2.jpg"
-                  alt="A delicious burger with fries and salad"
-                  className="w-full h-96 object-cover"
-                />
-                <div className="p-6">
-                  <p className="text-[#FF9F0D] mb-2">10 February 2022</p>
-                  <h3 className="text-xl font-bold mb-4">
-                    Pellentesque Non Efficitur Mi Aliquam Convallis Mi Quis
-                  </h3>
-                  <div className="flex justify-between items-center">
-                    <a href="#" className="text-white">
-                      Learn More
-                    </a>
-                    <div className="flex space-x-2 text-[#FF9F0D]">
-                      <img
-                        src="/icons/ThumbsUp.png"
-                        alt="thumsup"
-                        className="text-white"
-                      />
-                      <img
-                        src="/icons/ChatDots.png"
-                        alt="comment"
-                        className="text-[#FF9F0D]"
-                      />
-                      <img
-                        src="/icons/ShareNetwork.png"
-                        alt="share"
-                        className="text-white"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </Link>
-              <Link href={"/blog"} className="hover:scale-110 duration-300 bg-black border border-gray-700 rounded-lg overflow-hidden">
-                <img
-                  src="/blog/blog3.jpg"
-                  alt="A delicious pizza with various toppings"
-                  className="w-full h-96 object-cover"
-                />
-                <div className="p-6">
-                  <p className="text-[#FF9F0D] mb-2">10 February 2022</p>
-                  <h3 className="text-xl font-bold mb-4">
-                    Morbi Sodales Tellus Elit, In Blandit Risus Suscipit A
-                  </h3>
-                  <div className="flex justify-between items-center">
-                    <a href="#" className="text-white">
-                      Learn More
-                    </a>
-                    <div className="flex space-x-2 text-[#FF9F0D]">
-                      <img
-                        src="/icons/ThumbsUp.png"
-                        alt="thumsup"
-                        className="text-white"
-                      />
-                      <img
-                        src="/icons/ChatDots.png"
-                        alt="comment"
-                        className="text-[#FF9F0D]"
-                      />
-                      <img
-                        src="/icons/ShareNetwork.png"
-                        alt="share"
-                        className="text-white"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </Link>
-              <Link href={"/blog"} className="hover:scale-110 duration-300 bg-black border border-gray-700 rounded-lg overflow-hidden">
-                <img
-                  src="/blog/blog4.jpg"
-                  alt="A hand squeezing lime over tacos"
-                  className="w-full h-96 object-cover"
-                />
-                <div className="p-6">
-                  <p className="text-[#FF9F0D] mb-2">10 February 2022</p>
-                  <h3 className="text-xl font-bold mb-4">
-                    Curabitur rutrum velit ac congue malesuada
-                  </h3>
-                  <div className="flex justify-between items-center">
-                    <a href="#" className="text-white">
-                      Learn More
-                    </a>
-                    <div className="flex space-x-2 text-[#FF9F0D]">
-                      <img
-                        src="/icons/ThumbsUp.png"
-                        alt="thumsup"
-                        className="text-white"
-                      />
-                      <img
-                        src="/icons/ChatDots.png"
-                        alt="comment"
-                        className="text-[#FF9F0D]"
-                      />
-                      <img
-                        src="/icons/ShareNetwork.png"
-                        alt="share"
-                        className="text-white"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HeroBlog />
+      {/* BLOG SECTION END */}
     </main>
   );
 }

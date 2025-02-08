@@ -31,7 +31,7 @@ export const chef ={
       type: 'image',
       title: 'Chef Image',
       options: {
-        hotspot: true,
+        hotspot: true,// image ko sanity ke upar crop karne ke liey use karte ha 
       },
     },
     {

@@ -19,7 +19,10 @@ export const food = defineType({
                 list: [
                     { title: 'Burger', value: 'Burger' },
                     { title: 'Sandwich', value: 'Sandwich' },
+                    { title: 'Chicken', value: 'Chicken' },
+                    { title: 'Pizza', value: 'Pizza' },
                     { title: 'Drink', value: 'Drink' },
+                    { title: 'Non-Veg', value: 'Non-Veg' },
                 ],
                 layout: "dropdown"
             }      
