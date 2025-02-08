@@ -12,19 +12,3 @@ export async function ChefFunc(){
 }
 
 
-export async function FoodFunc(){
-  
-  const foodData =  await client.fetch(`*[_type == "food"][]{
-    _id,
-    name,
-    category,
-    price,
-    DiscountPrice,
-    tags,
-    "image_url": image.asset->url,
-    description,
-    available
-    }`)
-    return foodData
-}
-
