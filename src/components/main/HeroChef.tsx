@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ChefFunc } from "@/context/Context.tsx";
+import { ChefFunc } from "@/app/chef/page";
 import Image from "next/image";
 
 export default async function Chef() {
