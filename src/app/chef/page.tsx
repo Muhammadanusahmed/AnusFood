@@ -1,6 +1,17 @@
-import Head from "next/head";
-import { ChefFunc } from "@/context/Context.tsx";
+import Head from "next/head"
 import Image from "next/image"
+import { client } from "@/sanity/lib/client"
+
+export async function ChefFunc(){
+  
+  const chefData =  await client.fetch(`*[_type == "chef"][]{
+    _id,
+    name,
+    position,
+    "image_url": image.asset->url
+    }`)
+    return chefData
+}
 
 
 
