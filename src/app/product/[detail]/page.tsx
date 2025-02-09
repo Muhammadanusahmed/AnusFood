@@ -278,7 +278,7 @@ const relatedData = fetchDataToFunc.sort(() => Math.random() - 0.5).slice(0, 4);
           {relatedData.map((product) =>{
             return (
               
-      <Link href={`/product/${product._id}`} className='bg-white p-4 rounded-lg shadow-md cursor-pointer'>
+      <Link key={product._id} href={`/product/${product._id}`} className='bg-white p-4 rounded-lg shadow-md cursor-pointer'>
       <div className='relative'>
         {product.tags && (
           <span className='absolute top-2 left-2 bg-[#FF9F0D] text-white px-2 py-1 text-xs rounded'>
