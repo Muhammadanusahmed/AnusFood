@@ -269,58 +269,50 @@ const relatedData = fetchDataToFunc.sort(() => Math.random() - 0.5).slice(0, 4);
             </ul>
           </div>
         </div>
-        {/* <div className='mt-8'>
+
+
+
+         <div className='mt-8'>
           <h2 className='text-2xl text-[#333] font-bold'>Similar Products</h2>
           <div className='grid grid-cols-1 md:grid-cols-4 gap-4 mt-4'>
-            <div className='flex flex-col '>
-              <Image
-                src='/shopdetail/detail6.jpg'
-                alt='Fresh Lime'
-                className='w-full h-auto'
-              />
-              <div className='mt-2'>
-                <div className='text-gray-700'>Fresh Lime</div>
-                
-                <div className='flex'>
-                  <div className='text-[#FF9F0D] pr-3'>$38.00</div>
-                  <div className='text-[#4f4f4f] line-through'>$45.00</div>
-                </div>
-              </div>
-            </div>
-            <div className='flex flex-col'>
-              <Image
-          src='/shopdetail/detail7.jpg'
-                alt='Chocolate Muffin'
-                className='w-full h-auto'
-              />
-              <div className='mt-2'>
-                <div className='text-gray-700'>Chocolate Muffin</div>
-                <div className='text-[#FF9F0D]'>$28.00</div>
-              </div>
-            </div>
-            <div className='flex flex-col '>
-              <Image src='/shopdetail/detail8.jpg' alt='Burger' className='w-full h-auto' />
-              <div className='mt-2'>
-                <div className='text-gray-700'>Burger</div>
-                <div className='text-[#FF9F0D]'>$21.00</div>
-              </div>
-            </div>
-            <div className='flex flex-col'>
-              <Image
-                src='shopdetail/detail6.jpg'
-                alt='Fresh Lime'
-                className='w-full h-auto'
-              />
-              <div className='mt-2 '>
-                <div className='text-gray-700'>Fresh Lime</div>
-                <div className='flex'>
-                <div className='text-[#FF9F0D] pr-3'>$38.00</div>
-                <div className='text-gray-700 line-through'>$45.00</div>
-                </div>
-              </div>
-            </div>
+          {relatedData.map((product) =>{
+            return (
+              
+      <Link href={`/product/${product._id}`} className='bg-white p-4 rounded-lg shadow-md cursor-pointer'>
+      <div className='relative'>
+        {product.tags && (
+          <span className='absolute top-2 left-2 bg-[#FF9F0D] text-white px-2 py-1 text-xs rounded'>
+            {product.tags}
+          </span>
+        )}
+        <img
+          alt={product.name || 'Product Image'}
+          className='w-full h-48 object-cover rounded-t-lg'
+          src={product.image_url || 'https://placehold.co/300x300'}
+        />
+      </div>
+      <div className='mt-4'>
+        <h3 className='text-lg text-[#333] font-semibold'>
+          {product.name || 'Unnamed Product'}
+        </h3>
+        <div className='flex items-center'>
+          <span className='text-[#FF9F0D] text-xl font-bold'>
+            Rs.{product.price || '0.00'}
+          </span>
+          {product.DiscountPrice && (
+            <span className='text-gray-500 line-through ml-2'>
+              Rs.{product.DiscountPrice}
+            </span>
+            // end
+          )}
+        </div>
+      </div>
+    </Link>
+            )
+
+        })}
           </div>
-        </div> */}
+        </div> 
       </div>
     </div>
   )

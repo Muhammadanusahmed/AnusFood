@@ -56,7 +56,7 @@ const Navbar: React.FC = () => {
                         />
                         <img src='/icons/magniGlass.png' className="absolute right-3 top-1/2 transform -translate-y-1/2 text-[#FF9F0D]" />
                     </div>
-                    <Link href={"/shop"}>
+                    <Link href={"/cart"}>
                     <img src='/icons/Handbag.png' className="ml-4 text-white" />
                     </Link>
                     <Link href={"/signin"}>

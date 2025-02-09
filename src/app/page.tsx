@@ -1,9 +1,8 @@
-"use client"
+"use client";
 import Image from "next/image";
 import Head from "next/head";
 import HeroVideo from "@/components/HeroVideo";
 import HeroChef from "@/components/main/HeroChef"
-// import HeroShortMenu from "@/components/HeroShortMenu"
 import HeroBlog from "@/components/main/HeroBlog"
 import Link from "next/link";
 import {
@@ -16,7 +15,7 @@ import {
 
 
 
-export default function Home() {
+export async function DataMain() {
   return (
     <main>
       {/* HERO SECTION START */}
@@ -468,4 +467,8 @@ export default function Home() {
       {/* BLOG SECTION END */}
     </main>
   );
+}
+
+export default function Home(){
+  return (<DataMain/>)
 }

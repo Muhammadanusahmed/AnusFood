@@ -13,11 +13,17 @@ export async function ChefFunc(){
     return chefData
 }
 
-
+export interface ChefDataType{
+  _id: string,
+  name: string,
+  position: string,
+  image_url?: string
+}
 
 export default async function page(){
 
-const chefData = await ChefFunc()
+
+const chefData:ChefDataType[] = await ChefFunc()
 return(
   <div>
    <Head>
@@ -38,7 +44,7 @@ return(
    </div>
    <div className='container mx-auto p-4'>
      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
-       {chefData.map((chef:any) => (
+       {chefData.map((chef) => (
          <div
            key={chef._id}
            className='bg-white shadow-md rounded-lg overflow-hidden'
@@ -62,22 +68,3 @@ return(
    </div>
  </div>
 )}
-
-// {chefData.map((data:any)=>
-//   (
-//     <div key={data._id}>
-//       {data.name}
-//       <br />
-//       {data.position}
-//       <br />
-//       {data.image_url && (
-//   <Image
-//     src={data.image_url}
-//     alt={data.name}
-//     width={200}
-//     height={200}
-//     unoptimized
-//   />
-// )}
-//     </div>
-//   ))}

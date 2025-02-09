@@ -1,11 +1,11 @@
 import Link from "next/link";
-import { ChefFunc } from "@/app/chef/page";
+import { ChefFunc , ChefDataType } from "@/app/chef/page";
 import Image from "next/image";
 
 export default async function Chef() {
 
-  const Data = await ChefFunc()
-  const chefData = Data.slice(0, 4);
+  const Data:ChefDataType[] = await ChefFunc()
+  const chefData:ChefDataType[] = Data.slice(0, 4);
 
     return (
         <section>
@@ -20,7 +20,7 @@ export default async function Chef() {
                     <span className="text-[#FF9F0D]">Me</span>et Our Chef
                   </h1>
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
-                    {chefData.map((chef:any) => (
+                    {chefData.map((chef) => (
                       <div
                         key={chef._id}
                         className="bg-white hover:scale-110 duration-300  text-black rounded-lg overflow-hidden shadow-lg relative font-poppins"
@@ -41,7 +41,6 @@ export default async function Chef() {
                           <h3 className="font-bold text-black font-poppins">
                             {chef.position}
                           </h3>
-                          <p className="text-black font-poppins">{chef.title}</p>
                         </div>
                       </div>
                     ))}

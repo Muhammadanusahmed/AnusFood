@@ -1,10 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
-import { client } from '@/sanity/lib/client' 
-import { food } from '@/sanity/schemaTypes/food'
-
-
+import { client } from '@/sanity/lib/client'
 
 
   export interface ShopDataType {
